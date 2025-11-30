@@ -20,17 +20,22 @@ h1 {
 }
 
 /* Limit image dimensions so tiles don’t overflow the layout */
-img {
+img.img-fluid {
   max-height: 250px;
   max-width: 250px;
 }
 
-/* Optional decorative border for each tile */
+/* Add a border to each tile image */
 .border-tile {
-  border: 20px solid transparent;
-  border-image: url('../assets/wood.jpg') 30 round;
-  padding: 5px;
-  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  /* Set a fixed size for all tile images */
+  width: 220px;
+  height: 220px;
+  object-fit: cover; /* Ensures the image fills the area without stretching */
+  margin: 0 auto; /* Center the image in the card */
+  display: block;
 }
 
 /* Optional caption style if you add labels under your tiles */
@@ -39,6 +44,19 @@ img {
   margin-top: 8px;
   font-size: 14px;
   color: #444;
+}
+
+/* Card hover effect for tiles */
+.tile-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tile-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.tile-card:hover .border-tile {
+  border-color: #8d6e63;
 }
 
 /* 💡 Optional Enhancements:
